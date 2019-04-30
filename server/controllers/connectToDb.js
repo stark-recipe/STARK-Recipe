@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const connectionString = 'postgres://drcropgq:XHY-KNArA72Rm9lR9_hECTycMxztBu1i@isilo.db.elephantsql.com:5432/drcropgq'
+const connectionString = 'postgres://drcropgq:jyfG-N-tTL_PTQVnmDRRsNMmqlz_YolX@isilo.db.elephantsql.com:5432/drcropgq'
 
 
 const connectToDb = () => {
@@ -10,4 +10,3 @@ const connectToDb = () => {
 }
 
 module.exports = connectToDb;
-
