@@ -1,5 +1,5 @@
 import React from "react";
-import Row from "./row.jsx";
+import Row from "./Row.jsx";
 
 
 const BoxArea = props => {
