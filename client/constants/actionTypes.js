@@ -2,3 +2,4 @@ export const UPDATE_USERNAME_STR = "UPDATE_USERNAME_STR";
 export const UPDATE_PASSWORD_STR = "UPDATE_PASSWORD_STR";
 export const IS_SIGNUP= "IS_SIGNUP";
 export const IS_LOGGED_IN = "IS_LOGGED_IN"
+localStorage
