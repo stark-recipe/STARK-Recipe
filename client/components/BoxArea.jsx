@@ -1,16 +1,12 @@
 import React from "react";
-import Row from "./Row.jsx";
-
+import Card from './Card.jsx';
 
 const BoxArea = props => {
-  const rowArr = [];
-  for (let i = 0; i < 4; i += 1) {
-    rowArr.push(
-      <Row state={props.state} changePage={props.changePage} index={i * 3} key={rowArr} />
-    );
-  }
+  const resultCards = props.searchResults.map((currentResult) => {
+    return <Card info={currentResult}/>
+  });
 
-  return <div className="row">{rowArr}</div>
+  return <div className="row">{resultCards}</div>
 
 };
 

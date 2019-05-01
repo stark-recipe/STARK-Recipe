@@ -5,6 +5,8 @@ body {
   padding: 0;
 }
 
+
+
 #app {
   margin: 0;
   padding: 0;
@@ -111,10 +113,20 @@ body {
 .card {
   text-align: center;
   background-color: rgb(206, 190, 190);
-
+  width: 285px;
+  height: 350px;
+  margin: 15px;
   /* border: dotted 1px rgb(71, 70, 70); */
   display: inline-block;
 }
+
+.card img {
+  width: 66%;
+  height: 50%;
+  padding-top: 25px
+}
+
+
 
 #searchbar {
   width: 100%;
