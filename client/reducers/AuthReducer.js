@@ -1,5 +1,6 @@
 import * as types from '../constants/actionTypes';
 
+
 const initialState = {
   usernameStr: '',
   passwordStr: '',
@@ -16,6 +17,7 @@ const authReducer = (state = initialState, action) => {
       }
     case types.UPDATE_PASSWORD_STR:
       //return state with payload inserted into password
+      
       return {
         ...state,
         passwordStr: action.payload
@@ -44,5 +46,6 @@ const authReducer = (state = initialState, action) => {
         return state;
   }
 };
+
 
 export default authReducer;

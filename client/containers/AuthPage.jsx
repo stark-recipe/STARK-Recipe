@@ -1,27 +1,27 @@
 import React from "react";
-import { render } from 'react-dom';
 import { connect } from 'react-redux';
-import App from "./App.jsx";
+import * as actions from '../actions/actions'
+
 
 const mapStateToProps = (store) => ({
-
+  usernameStr:store.auth.usernameStr
 });
 
-const mapDispatchToProps = (store) => ({
-
+const mapDispatchToProps = (dispatch) => ({
+  updateUsernameStr:(e) => {dispatch(actions.updateUsernameStr(e.target.value))}
 });
 
-class AuthPage extends React{
+
+class AuthPage extends React.Component{
   constructor(props){
     super(props);
   }
   render(){
     return (
       <div>
-        
         {/* input field for username */}
         <div className="username input">
-          <input type="text" className="textbox"></input>
+          <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
         {/* input field for password */}
         <div className="password input">
@@ -33,10 +33,10 @@ class AuthPage extends React{
             <button id="loginButton"></button> <button id="signUpButton"></button>
           </span>
        </div>
-
       </div>
     )
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthPage)
