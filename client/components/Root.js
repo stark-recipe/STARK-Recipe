@@ -11,11 +11,16 @@ import { Switch } from 'react-router';
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
+<<<<<<< HEAD
+      <Route exact path="/test" component={AuthPage} />
+      <Route exact path="/" component={MainContainer} />
+=======
       <Switch>
         <Route exact path="/" component={AuthPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/maincontainer" component={MainContainer} />
       </Switch>
+>>>>>>> fa03b9caf23776adb083bad570014dd727d2dd24
     </Router>
   </Provider>
 )
