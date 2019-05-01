@@ -5,7 +5,7 @@ const initialState = {
   usernameStr: '',
   passwordStr: '',
   isLoggedIn: false,
-  isSingup: false,
+  isSignup: false,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -22,21 +22,18 @@ const authReducer = (state = initialState, action) => {
         passwordStr: action.payload
       }
 
-    case types.IS_SIGNUP:
-      //should send info to backend to
-      //create a new user in DB
-      //followed by routing to main page
-      const isSignup = true;
-      return {
-        ...state,
-        isSignup
-      }
-
-      case types.IS_LOGGED_IN:
+      case types.IS_LOGIN:
         const isLoggedIn = true;
         return {
           ...state,
           isLoggedIn
+        }
+
+      case types.SIGNUP_ONCLICK:
+        const isSignup = true;
+        return {
+          ...state,
+          isSignup
         }
       
       default: 
