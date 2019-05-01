@@ -1,12 +1,13 @@
 const connectToDb = require('./connectToDb.js');
 
 
-const mainFavorite = (req, res, next) => {
+const favorite = (req, res, next) => {
 
   const pool = connectToDb();
   const query = {
-    name: 'GetQuery',
-    text:'SELECT label, img_url, recipe_url FROM "favorites_table"'
+    name: 'GetFavorite',
+    text:'SELECT id, label, img_url, recipe_url FROM "favorites_table" WHERE user_id=$1',
+    values: [req.params.user_id]
   };
 
   pool.query(query, (err, results) => {
@@ -21,4 +22,4 @@ const mainFavorite = (req, res, next) => {
 };
 
 
-module.exports = mainFavorite;
+module.exports = favorite;
