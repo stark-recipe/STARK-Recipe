@@ -12,14 +12,10 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-<<<<<<< HEAD
-  updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))}
-=======
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
   updatePasswordStr:(e) => {dispatch(authActions.updatePasswordStr(e.target.value))},
   signupOnClick:() => {dispatch(authActions.signupOnClick())},
   loginApi:(usernameStr, passwordStr) => {dispatch(authActions.loginApi(usernameStr, passwordStr))},
->>>>>>> fa03b9caf23776adb083bad570014dd727d2dd24
 });
 
 
