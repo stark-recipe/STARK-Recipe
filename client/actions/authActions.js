@@ -11,10 +11,46 @@ export const updatePasswordStr = (passwordStr) => ({
   payload: passwordStr
 });
 
-export const loginOnclick = () => ({
-  type: types.LOGIN_ONCLICK
+export const isLogin = (bool) => ({
+  type: types.IS_LOGIN,
+  payload: bool
 });
 
-export const signupOnclick = () => ({
-  type: types.SIGNUP_ONCLICK
+export const signupOnClick = (bool) => ({
+  type: types.SIGNUP_ONCLICK,
+  payload: bool
 });
+
+export const loginApi = (usernameStr, passwordStr) => {
+  return function(dispatch, getState) {
+    return fetch('http://localhost:300.login', {
+      method: "POST",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify({"username": usernameStr, "password": passwordStr})
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response === 200) {
+        dispatch(isLogin(true))
+      }
+    })
+    .catch(err => console.log(err))
+  }
+}
+
+export const signupApi = (usernameStr, passwordStr) => {
+  return function(dispatch, getState) {
+    return fetch('http://localhost:300.signup', {
+      method: "POST",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify({"username": usernameStr, "password": passwordStr})
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response === 200) {
+        dispatch(isLogin(true))
+      }
+    })
+    .catch(err => console.log(err))
+  }
+}
