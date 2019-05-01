@@ -5,10 +5,10 @@ export const updateSearchStr = (searchStr) => ({
   payload: searchStr
 })
 
-export const callSearchStr = (searchStr) => ({
+export const callSearchStr = (searchResults) => ({
   type: types.CALL_SEARCH_STR,
   //this is where the result of calling thunk is stored
-  payload: searchStr
+  payload: searchResults
 });
 
 export const changePage = (id) => ({

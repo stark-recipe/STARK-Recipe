@@ -8,7 +8,7 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateUsernameStr:(e) => {dispatch(actions.updateUsernameStr(e.target.value))}
+  updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))}
 });
 
 

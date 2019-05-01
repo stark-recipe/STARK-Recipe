@@ -9,8 +9,8 @@ import MainContainer from '../containers/MainContainer.jsx';
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={AuthPage} />
-      <Route exact path="/Yoo" component={MainContainer} />
+      <Route exact path="/test" component={AuthPage} />
+      <Route exact path="/" component={MainContainer} />
     </Router>
   </Provider>
 )
