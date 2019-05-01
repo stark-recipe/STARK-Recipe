@@ -6,36 +6,28 @@ import * as authActions from '../actions/authActions'
 
 const mapStateToProps = (store) => ({
   usernameStr:store.auth.usernameStr,
-  passworgStr:store.auth.passwordStr,
+  passwordStr:store.auth.passwordStr,
   isLoggedIn:store.auth.isLoggedIn,
-  isSignup:store.auth.isSignup
 });
 
 const mapDispatchToProps = (dispatch) => ({
-<<<<<<< HEAD
-  updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))}
-=======
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
   updatePasswordStr:(e) => {dispatch(authActions.updatePasswordStr(e.target.value))},
-  signupOnClick:() => {dispatch(authActions.signupOnClick())},
-  loginApi:(usernameStr, passwordStr) => {dispatch(authActions.loginApi(usernameStr, passwordStr))},
->>>>>>> fa03b9caf23776adb083bad570014dd727d2dd24
+  signupApi:(usernameStr, passwordStr) => {dispatch(authActions.signupApi(usernameStr, passwordStr))},
 });
 
 
-class AuthPage extends React.Component{
+class SignupPage extends React.Component{
   constructor(props){
     super(props);
   }
   render(){
-    if (this.props.isSignup === true) {
-      return <Redirect to="/signup"></Redirect>
-    } else if (this.props.isLoggedIn === true) {
+    if (this.props.isLoggedIn === true) {
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
       <div>
-        <h1>On Login Page</h1>
+        <h1>On Signup Page</h1>
         {/* input field for username */}
         <div className="username input">
           <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
@@ -47,7 +39,7 @@ class AuthPage extends React.Component{
         {/* contains the signup and login button */}
         <div className="buttons">
           <span>
-            <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}></button> <button id="signUpButton" onClick={this.props.signupOnClick}></button>
+            <button id="completeSignup" onClick={(e)=>{this.props.signupApi(this.props.usernameStr, this.props.passwordStr)}}></button>
           </span>
        </div>
       </div>
@@ -56,4 +48,4 @@ class AuthPage extends React.Component{
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthPage)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)
