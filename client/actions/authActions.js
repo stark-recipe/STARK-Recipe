@@ -18,4 +18,3 @@ export const loginOnclick = () => ({
 export const signupOnclick = () => ({
   type: types.SIGNUP_ONCLICK
 });
-

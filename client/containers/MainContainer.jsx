@@ -1,5 +1,14 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import * as mainActions from '../actions/mainActions'
 
+const mapStateToProps = (store) => {
+
+}
+
+const mapDispatchToProps = (dispatch) =>{
+
+}
 
 class MainContainer extends Component {
   constructor(props) {
@@ -16,4 +25,4 @@ class MainContainer extends Component {
 }
 
 
-export default MainContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(MainContainer);
