@@ -11,27 +11,10 @@ export const updatePasswordStr = (passwordStr) => ({
   payload: passwordStr
 });
 
-
-export const isSignup= () => ({
-  type: types.IS_SIGNUP,
-  payload: bool
+export const loginOnclick = () => ({
+  type: types.LOGIN_ONCLICK
 });
 
-export const isLoggedIn = (bool) => ({
-  type: types.IS_LOGGED_IN,
-  payload: bool
-})
-
-export const loginApi = (usernameStr, passwordStr) => {
-  return function(dispatch, getState) {
-    return fetch('http://localhost:3000/signup', {
-      method: "POST",
-      headers: {"content-type": "application/json"},
-      body: JSON.stringify({"userName": usernameStr, "password": passwordStr})
-    })
-    .then (response => response.json())
-    .then(response => {
-      dispatch(isLoggedIn(response.bool))
-    })
-  }
-}
+export const signupOnclick = () => ({
+  type: types.SIGNUP_ONCLICK
+});
