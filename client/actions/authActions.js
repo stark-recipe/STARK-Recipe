@@ -11,7 +11,6 @@ export const updatePasswordStr = (passwordStr) => ({
   payload: passwordStr
 });
 
-
 export const isSignup= () => ({
   type: types.IS_SIGNUP,
   payload: bool
@@ -35,3 +34,4 @@ export const loginApi = (usernameStr, passwordStr) => {
     })
   }
 }
+
