@@ -4,8 +4,8 @@ import * as types from '../constants/actionTypes';
 const initialState = {
   usernameStr: '',
   passwordStr: '',
-  loginOnClick: false,
-  singupOnClick: false,
+  isLoggedIn: false,
+  isSingup: false,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -17,30 +17,27 @@ const authReducer = (state = initialState, action) => {
       }
     case types.UPDATE_PASSWORD_STR:
       //return state with payload inserted into password
-      
       return {
         ...state,
         passwordStr: action.payload
       }
-    case types.LOGIN_ONCLICK:
-      //if login successful
-      //should send login info to backend 
-      //followed by routing to main page
-      const loginOnClick = true;
-      return {
-        ...state,
-        loginOnClick
-      };
 
-    case types.SIGNUP_ONCLICK:
+    case types.IS_SIGNUP:
       //should send info to backend to
       //create a new user in DB
       //followed by routing to main page
-      const signupOnClick = true;
+      const isSignup = true;
       return {
         ...state,
-        signupOnClick
+        isSignup
       }
+
+      case types.IS_LOGGED_IN:
+        const isLoggedIn = true;
+        return {
+          ...state,
+          isLoggedIn
+        }
       
       default: 
         return state;
