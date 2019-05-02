@@ -11,9 +11,9 @@ export const updatePasswordStr = (passwordStr) => ({
   payload: passwordStr
 });
 
-export const isLogin = (id, username, email) => ({
+export const isLogin = (id, username, email, error) => ({
   type: types.IS_LOGIN,
-  payload: {id, username, email}
+  payload: {id, username, email, error}
 });
 
 export const signupOnClick = () => ({
@@ -30,7 +30,8 @@ export const loginApi = (usernameStr, passwordStr) => {
     })
     .then(response => response.json())
     .then(response => {
-        dispatch(isLogin(response.id, response.username, response.email))
+      if(response.error) dispatch(isLogin('error','error','error',response.error));
+      else dispatch(isLogin(response.id, response.username, response.email, null));
     })
     .catch(err => console.log(err))
   }

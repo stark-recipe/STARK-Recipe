@@ -7,6 +7,7 @@ import * as types from "../constants/actionTypes";
    currCard: [],
    hasBeenClicked: false,
    cardClicked: false,
+   backButton: true,
    cardId: -1,
    favoriteFoods: []
  }
@@ -32,7 +33,14 @@ import * as types from "../constants/actionTypes";
       return {
         ...state,
         cardId: action.payload,
-        cardClicked
+        cardClicked: !state.cardClicked,
+        backButton: !state.backButton
+      }
+     case types.BACK_BUTTON_CLICKED:
+      return {
+        ...state,
+        cardClicked: !state.cardClicked,
+        backButton: !state.backButton
       }
      case types.CHANGE_HAS_BEEN_CLICKED:
      case types.CHANGE_FAVORITE_FOODS:

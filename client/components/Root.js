@@ -10,6 +10,7 @@ import MainContainer from '../containers/MainContainer.jsx';
 import SelectedCardDisplay from '../containers/SelectedCardDisplay.jsx'
 
 const Root = ({ store }) => (
+
   <Provider store={store}>
     <Router>
       <Switch>
@@ -21,6 +22,7 @@ const Root = ({ store }) => (
     </Router>
   </Provider>
 )
+
 
 
 Root.propTypes = {

@@ -85,6 +85,10 @@ body {
   flex-direction: column;
 }
 
+.ingredients p {
+  font-size: 15px;
+}
+
 .rightMenuBox {
   width: 100%;
   height: 380px;
@@ -165,7 +169,7 @@ body {
   margin-top: -200px;
   margin-left: -150px;
   border-radius: 5px;
-  
+
   -webkit-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   -moz-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);

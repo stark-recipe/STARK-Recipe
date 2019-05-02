@@ -38,3 +38,7 @@ export const onCardClicked = (cardId) => ({
 export const getShoppingList = (shoppingList) => ({
   type:types.GET_SHOPPING_LIST
 });
+
+export const backButtonClicked = () => ({
+  type: types.BACK_BUTTON_CLICKED
+})

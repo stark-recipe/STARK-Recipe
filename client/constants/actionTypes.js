@@ -19,3 +19,4 @@ export const CHANGE_FAVORITE_FOODS = "CHANGE_FAVORITE_FOODS";//should change lin
 export const CONNECT_TO_RECIPE = "CONNECT_TO_RECIPE";
 export const GET_SHOPPING_LIST = "GET_SHOPPING_LIST"; //changes list obj in line 6 of ShoppingList.jsx
 export const ON_CARD_CLICKED = "ON_CARD_CLICKED";
+export const BACK_BUTTON_CLICKED = "BACK_BUTTON_CLICKED";
