@@ -48,6 +48,10 @@ export const postFavoriteFoods = (foodObject, userId) => {
 
 }
 
+export const addToShoppingCart = (newObj) => ({
+  type: types.ADD_TO_SHOPPING_CART,
+  payload: newObj
+});
 
 export const fetchFavoriteFoods = (userId) => {
   console.log('this is the user id', userId);

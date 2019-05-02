@@ -11,7 +11,8 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   backButtonClicked: () => {dispatch(mainActions.backButtonClicked())},
-  postFavoriteFoods: (foodObj, userId) => {dispatch(mainActions.postFavoriteFoods(foodObj, userId))}
+  postFavoriteFoods: (foodObj, userId) => {dispatch(mainActions.postFavoriteFoods(foodObj, userId))},
+  addToShoppingCart: (cartItem) =>{dispatch(mainActions.addToShoppingCart(cartItem))}
 });
 
 class SelectedCardDisplay extends Component {
@@ -19,7 +20,7 @@ class SelectedCardDisplay extends Component {
     super(props);
   }
 
-  render(){
+  render(){ingredients
     const cardProps = this.props.cardInfo;
     const ingredients = cardProps.ingredientLines.map((line) => {return <p>{line}</p>});
     const favoriteObj = {
@@ -27,6 +28,9 @@ class SelectedCardDisplay extends Component {
       label: cardProps.label,
       img_url: cardProps.image,
       recipe_url: cardProps.url
+    }
+    const cartObj = {
+
     }
 
     if(this.props.backButton === true){
@@ -54,7 +58,8 @@ class SelectedCardDisplay extends Component {
         <p>Carbs: {cardProps.carbs} </p>
         <p>Protein: {cardProps.protein} </p>
       </div>
-      <button onClick={()=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
+      <button onClick={(e)=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
+      <button onClick={(e)=>{this.props.addToShoppingCart(cardProps.ingredientLines)}}>ADD INGREDIENTS TO CART </button>
       </div>
     );
   }
