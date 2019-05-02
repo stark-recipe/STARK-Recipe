@@ -11,9 +11,9 @@ const Search = props => {
           id="searchbar"
           value={props.searchStr}
           placeholder="Find the best recipes from across the web!"
-          onChange={props.onChangeSearchStr}
+          onChange={(e) => {props.updateSearchStr(e.target.value)}}
         />
-        <button id="searchBtn" onClick={props.searchStrMethod}>
+        <button id="searchBtn" onClick={() => props.callSearchStr(props.searchStr)}>
           {" "}
           Search{" "}
         </button>
