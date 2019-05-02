@@ -35,11 +35,11 @@ class AuthPage extends React.Component{
         {/* input field for username */}
         <img className="foodImg" src="https://img.icons8.com/bubbles/100/000000/food.png"></img>
         <div className="username input">
-          <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
+          <input type="text" className="loginInput" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
         {/* input field for password */}
         <div className="password input">
-          <input type="password" className="textbox" value={this.props.passwordStr} onChange={this.props.updatePasswordStr}></input>
+          <input type="password" className="passwordInput" value={this.props.passwordStr} onChange={this.props.updatePasswordStr}></input>
         </div>
         {/* contains the signup and login button */}
         <div className="buttons">

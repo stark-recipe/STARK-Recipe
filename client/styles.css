@@ -172,16 +172,60 @@ body {
 }
 
 .loginHeader {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Roboto', sans-serif;
   color: #252e38;
+  font-size: 34px;
+  margin-top: 35px;
 }
 
 .textbox {
   width: 200px;
   height: 20px;
-  padding: 5px;
+  padding-left: 30px;
   border-radius: 5px;
   outline: none;
+}
+
+.loginInput {
+  background-color: white;
+  background-image: url('user-logo.png');
+  background-size: 28px;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgrey;
+  /* border-color: transparent; */
+  
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  /* border-radius: 5px; */
+  outline: none;
+}
+
+.passwordInput {
+  background-color: white;
+  background-image: url('password-logo.png');
+  background-size: 28px;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgrey;
+  
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  /* border-radius: 5px; */
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .foodImg {
