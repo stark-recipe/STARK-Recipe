@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 // - hits > recipe > digest > Fat, Carbs, Protein
 
 const searchController = (req, res, next) => {
+  if (!req.body.search) return res.status(403).send('Body search is invalid')
   const searchQuery = req.body.search;
   const appId = 'fbb346fc';//'f8182a87';
   const appKey = 'cca5447692c13f5353e4d07602c1b26d';//'5f5f6bf45e7dd3b097216f12c9208fbb';
@@ -33,7 +34,6 @@ const searchController = (req, res, next) => {
         }
         recipeObjs.push(returnObj);
       }
-
       res.locals.apiData = recipeObjs
       return next()
     }).catch(err => res.locals.err = err)

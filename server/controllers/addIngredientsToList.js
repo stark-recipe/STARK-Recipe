@@ -12,11 +12,11 @@ const addIngredientsToList = (req, res, next) => {
 
   pool.query(query, (err, result) => {
     if (err) {
-      return console.error('Error executing query', err)
+      res.status(404).send(err)
+    } else {
+      res.locals.addIngredientsToList = result;
+      return next();
     }
-
-    res.locals.addIngredientsToList = result;
-    return next();
   })
 }
 

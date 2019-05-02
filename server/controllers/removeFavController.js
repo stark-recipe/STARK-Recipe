@@ -2,7 +2,7 @@ const connectToDb = require('./connectToDb.js');
 
 
 const removeFavController = (req, res, next) => {
-  
+  if (typeof req.body.id !== 'number') return res.status(403).send('id is not a number')
   const pool = connectToDb();
 
   const query = {
@@ -13,7 +13,7 @@ const removeFavController = (req, res, next) => {
 
   pool.query(query, (err, results) => {
     if (err) {
-      res.status(404).send(err);
+      res.status(403).send(err);
     } else {
       res.locals.removeData = results.rows[0];
       return next();

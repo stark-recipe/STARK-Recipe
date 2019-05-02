@@ -61,8 +61,7 @@ app.get('/mainShoppingList', mainShoppingList, (req, res) => {
 });
 
 app.post('/addIngredientsToList', (req, res) => {
-  if (res.locals.err) res.status(404).send(err);
-  res.send('Booby Drop Added');
+  res.send(res.locals.addIngredientsToList);
 });
 
 app.delete('/removeList', removeList, (req, res) => {
@@ -74,8 +73,12 @@ app.get('*', (req, res) => {
   res.status(404).send('Route does not exist');
 })
 
-if (require.main === module) {
-  app.listen(PORT, () => {
+// if (require.main === module) {
+//   app.listen(PORT, () => {
+//     console.log('server started at http://localhost:' + PORT);
+//   });
+// };
+
+module.exports =  app.listen(PORT, () => {
     console.log('server started at http://localhost:' + PORT);
   });
-};
