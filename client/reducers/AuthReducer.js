@@ -6,6 +6,9 @@ const initialState = {
   passwordStr: '',
   isLoggedIn: false,
   isSignup: false,
+  userId : null,
+  userName: '',
+  email: '',
 }
 
 const authReducer = (state = initialState, action) => {
@@ -17,6 +20,7 @@ const authReducer = (state = initialState, action) => {
       }
     case types.UPDATE_PASSWORD_STR:
       //return state with payload inserted into password
+      console.log("setting password str ", action.payload )
       return {
         ...state,
         passwordStr: action.payload
@@ -26,7 +30,10 @@ const authReducer = (state = initialState, action) => {
         const isLoggedIn = true;
         return {
           ...state,
-          isLoggedIn
+          isLoggedIn,
+          userId: action.payload.id,
+          userName: action.payload.username,
+          email: action.payload.email
         }
 
       case types.SIGNUP_ONCLICK:
@@ -35,8 +42,8 @@ const authReducer = (state = initialState, action) => {
           ...state,
           isSignup
         }
-      
-      default: 
+
+      default:
         return state;
   }
 };
