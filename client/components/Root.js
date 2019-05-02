@@ -16,7 +16,11 @@ const Root = ({ store }) => (
         <Route exact path="/" component={AuthPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/maincontainer" component={MainContainer} />
+<<<<<<< HEAD
         <Route path="/selectedcard" component={SelectedCardDisplay} />
+=======
+        <Route path="/selectedCard" component={SelectedCardDisplay} />
+>>>>>>> 35b2cf079db66e8175dc6166985d61af8ff7cc5e
       </Switch>
     </Router>
   </Provider>

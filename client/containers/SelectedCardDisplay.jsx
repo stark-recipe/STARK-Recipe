@@ -72,6 +72,9 @@ class SelectedCardDisplay extends Component {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b2cf079db66e8175dc6166985d61af8ff7cc5e
 
 export default connect(mapStateToProps,mapDispatchToProps)(SelectedCardDisplay);

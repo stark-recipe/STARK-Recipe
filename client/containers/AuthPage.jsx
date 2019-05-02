@@ -6,7 +6,7 @@ import * as authActions from '../actions/authActions'
 
 const mapStateToProps = (store) => ({
   usernameStr:store.auth.usernameStr,
-  passworgStr:store.auth.passwordStr,
+  passwordStr:store.auth.passwordStr,
   isLoggedIn:store.auth.isLoggedIn,
   isSignup:store.auth.isSignup
 });
@@ -30,9 +30,10 @@ class AuthPage extends React.Component{
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
-      <div>
-        <h1>On Login Page</h1>
+      <div className="login">
+        <h1 className="loginHeader">Welcome</h1>
         {/* input field for username */}
+        <img className="foodImg" src="https://img.icons8.com/bubbles/100/000000/food.png"></img>
         <div className="username input">
           <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
@@ -43,7 +44,8 @@ class AuthPage extends React.Component{
         {/* contains the signup and login button */}
         <div className="buttons">
           <span>
-            <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}></button> <button id="signUpButton" onClick={this.props.signupOnClick}></button>
+            <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}>Log In</button>
+            <button id="signUpButton" onClick={this.props.signupOnClick}>Sign Up!</button>
           </span>
        </div>
       </div>
