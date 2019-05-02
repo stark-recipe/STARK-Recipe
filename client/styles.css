@@ -5,8 +5,6 @@ body {
   padding: 0;
 }
 
-
-
 #app {
   margin: 0;
   padding: 0;
@@ -57,6 +55,7 @@ body {
   border-radius: 5px;
   padding-left: 10px;
 }
+
 #searchBtn {
   width: 50px;
   height: 40px;
@@ -75,6 +74,7 @@ body {
   border-radius: 5px;
   background-color: #f2bb10;
 }
+
 #rightMenuContainer {
   float: right;
   width: 300px;
@@ -119,14 +119,11 @@ body {
   /* border: dotted 1px rgb(71, 70, 70); */
   display: inline-block;
 }
-
 .card img {
   width: 66%;
   height: 50%;
   padding-top: 25px
 }
-
-
 
 #searchbar {
   width: 100%;
@@ -136,11 +133,13 @@ body {
   margin: 20px;
   width: 80%;
 }
+
 #descriptionContainer {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 30% auto;
 }
+
 #foodImg {
   grid-area: 1 / col1-start / 2 / 2;
 }
@@ -152,4 +151,34 @@ body {
   text-align: center;
   width: 80%;
   display: inline-block;
+}
+
+.login {
+  background-color: white;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  color: black;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -200px;
+  margin-left: -150px;
+  border-radius: 5px;
+  
+  -webkit-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
+  -moz-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
+  box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
+}
+.loginHeader {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #252e38;
+}
+
+.textbox {
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
 }
