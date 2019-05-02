@@ -45,9 +45,9 @@ class MainContainer extends Component {
     } else
     return (
       <div>
-        <div className="headerName"> 
-          <h1 className="welcomeHeader">Welcome to BLISSEY recipes tracker {this.props.userName}</h1>
-        </div>
+      <div className="headerName"> 
+      <h1 className="welcomeHeader">Welcome to BLISSEY recipes tracker {this.props.userName}!</h1>
+      </div>
         <Search
           searchStr={this.props.searchStr}
           updateSearchStr={this.props.updateSearchStr}
