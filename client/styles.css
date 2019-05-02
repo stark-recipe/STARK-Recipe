@@ -170,6 +170,7 @@ body {
   -moz-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
 }
+
 .loginHeader {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #252e38;
@@ -181,4 +182,9 @@ body {
   padding: 5px;
   border-radius: 5px;
   outline: none;
+}
+
+.foodImg {
+  width: 100px;
+  margin-bottom: 10px;
 }

@@ -30,9 +30,10 @@ class AuthPage extends React.Component{
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
-      <div>
-        <h1>On Login Page</h1>
+      <div className="login">
+        <h1 className="loginHeader">Welcome</h1>
         {/* input field for username */}
+        <img className="foodImg" src="https://img.icons8.com/bubbles/100/000000/food.png"></img>
         <div className="username input">
           <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
