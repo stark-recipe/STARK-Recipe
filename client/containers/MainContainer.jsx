@@ -2,12 +2,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as mainActions from '../actions/mainActions'
-
-
-import { Redirect } from 'react-router-dom'
-
-
-
+import { Redirect } from 'react-router-dom';
 //importing components//////////////////////////////
 import Search from '../components/Search.jsx';
 import CardArea from '../components/BoxArea.jsx';
@@ -39,17 +34,9 @@ class MainContainer extends Component {
   }
 
   render() {
-
-
-
-
-    if (this.props.cardClicked === true) {
-      return <Redirect to="/selectedcard"></Redirect>
+    if(this.props.cardClicked === true){
+      return <Redirect to='/selectedCard'></Redirect>
     }
-
-
-
-
     return (
       <div>
         <Search searchStr={this.props.searchStr} updateSearchStr={this.props.updateSearchStr} callSearchStr={this.props.callSearchStr}/>
