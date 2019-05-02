@@ -3,7 +3,7 @@ import React from "react";
 const Search = props => {
   return (
     <div id="searchheader">
-      <div id="logo">Stark Recipe Finder</div>
+      <div id="logo">Blissey Recipe Finder</div>
       <div id="searchbox">
         <input
           type="text"
@@ -19,7 +19,7 @@ const Search = props => {
         </button>
       </div>
 
-      <button id="login">Login</button>
+      {/* <button id="login">Login</button> */}
     </div>
   );
 };
