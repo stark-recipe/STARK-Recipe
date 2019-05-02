@@ -50,7 +50,7 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.3.1"
   },
-  "jest" : {
+  "jest": {
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js"
   }

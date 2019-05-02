@@ -30,6 +30,11 @@ export const connectToRecipe = (newRecipe) => ({
   payload: newRecipe
 });
 
+export const onCardClicked = (cardId) => ({
+  type: types.ON_CARD_CLICKED,
+  payload: cardId
+});
+
 export const getShoppingList = (shoppingList) => ({
   type:types.GET_SHOPPING_LIST
 });
