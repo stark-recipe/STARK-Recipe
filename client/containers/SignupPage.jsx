@@ -26,8 +26,8 @@ class SignupPage extends React.Component{
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
-      <div>
-        <h1>On Signup Page</h1>
+      <div className="signup">
+        <h1 className="signupHeader">Sign Up</h1>
         {/* input field for username */}
         <div className="username input">
           <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
