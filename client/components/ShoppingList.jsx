@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import RecipeItem from "./RecipeItem.jsx"
+import Collapsible from "react-collapsible";
 
 
 const mapStateToProps = (store) => ({
   shoppingCartArr:store.main.shoppingCartArr
 })
-
 
 class ShoppingList extends Component {
   constructor(props) {
@@ -15,11 +15,15 @@ class ShoppingList extends Component {
 
   render() {
     const cartItemsArr = this.props.shoppingCartArr.map(function(el){
-      <RecipeItem item={el} />
+      return <RecipeItem item={el} />
     })
     return (
       <div>
-        {cartItemsArr}
+        <Collapsible trigger={<button className="rightMenuBtn">SHOPPING CART</button>} transitionTime={200}>
+          <div>
+            {cartItemsArr}
+          </div>
+        </Collapsible>
       </div>
     );
   }
