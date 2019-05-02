@@ -1,34 +1,28 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import RecipeItem from "./RecipeItem.jsx"
+
+
+const mapStateToProps = (store) => ({
+  shoppingCartArr:store.main.shoppingCartArr
+})
+
 
 class ShoppingList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      list: {}
-    };
   }
 
-  // componentDidMount() {
-  //   shoppingList();
-  // }
-
-  // shoppingList() {
-  //   axios.get("http://localhost:3000/mainShoppingList").then(res => {
-  //     this.setState({ shoppingList: res.data });
-  //   });
-  // }
   render() {
-    //   const favoriteBox = this.state.foods.map(food => (
-    //       <div>{foods.hits.recipe.image}</div>
-    //   ))
+    const cartItemsArr = this.props.shoppingCartArr.map(function(el){
+      <RecipeItem item={el} />
+    })
     return (
       <div>
-        <div className="rightMenuBox">
-          <button className="rightMenuBtn">Shopping List</button>
-        </div>
+        {cartItemsArr}
       </div>
     );
   }
 }
 
-export default ShoppingList;
+export default connect(mapStateToProps)(ShoppingList)
