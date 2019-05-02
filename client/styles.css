@@ -83,10 +83,10 @@ body {
 }
 
 #searchBtn {
-  width: 50px;
+  width: 90px;
   height: 40px;
-  margin-left: 5px;
-  border-radius: 5px;
+  margin-left: 10px;
+  border-radius: 20px;
   outline: none;
   border: 0;
   background-color: #fefefe;
@@ -212,7 +212,7 @@ body {
   position: absolute;
   margin-top: -200px;
   margin-left: -150px;
-  border-radius: 5px;
+  border-radius: 10px;
 
   -webkit-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   -moz-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
@@ -256,7 +256,7 @@ body {
 
 .passwordInput {
   background-color: white;
-  background-image: url('img/password-logo.png');
+  background-image: url(./img/password-logo.png);
   background-size: 28px;
   background-repeat: no-repeat;
 
