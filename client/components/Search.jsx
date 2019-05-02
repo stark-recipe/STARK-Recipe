@@ -4,7 +4,7 @@ import React from "react";
 const Search = props => {
   return (
     <div id="searchheader">
-      <div id="logo">Stark Recipe Finder</div>
+      <div id="logo">Blissey Recipe Finder</div>
       <div id="searchbox">
         <input
           type="text"
