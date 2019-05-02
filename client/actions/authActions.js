@@ -23,7 +23,7 @@ export const signupOnClick = (bool) => ({
 
 export const loginApi = (usernameStr, passwordStr) => {
   return function(dispatch, getState) {
-    return fetch('http://localhost:300.login', {
+    return fetch('http://localhost:3000/login', {
       method: "POST",
       headers: {"content-type": "application/json"},
       body: JSON.stringify({"username": usernameStr, "password": passwordStr})

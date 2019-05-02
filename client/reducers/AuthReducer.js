@@ -4,7 +4,7 @@ import * as types from '../constants/actionTypes';
 const initialState = {
   usernameStr: '',
   passwordStr: '',
-  isLoggedIn: false,
+  isLoggedIn: true,
   isSignup: false,
 }
 
