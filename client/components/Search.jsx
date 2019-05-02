@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Search = props => {
   return (
     <div id="searchheader">
@@ -18,8 +19,6 @@ const Search = props => {
           Search{" "}
         </button>
       </div>
-
-      {/* <button id="login">Login</button> */}
     </div>
   );
 };

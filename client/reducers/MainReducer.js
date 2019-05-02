@@ -9,7 +9,8 @@ import * as types from "../constants/actionTypes";
    cardClicked: false,
    backButton: true,
    cardId: -1,
-   favoriteFoods: []
+   favoriteFoods: [],
+   shoppingCartArr: []
  }
 
  const mainReducer = (state = initialState, action) => {
@@ -51,6 +52,11 @@ import * as types from "../constants/actionTypes";
      case types.CHANGE_FAVORITE_FOODS:
      case types.CONNECT_TO_RECIPE:
      case types.GET_SHOPPING_LIST:
+     case types.ADD_TO_SHOPPING_CART:
+      return {
+        ...state,
+        shoppingCartArr: state.shoppingCartArr.concat(action.payload)
+      }
      default:
       return state;
    }

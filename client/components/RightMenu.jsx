@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 import ShoppingList from "./ShoppingList.jsx";
 import Favorite from "./Favorite.jsx";
+
 
 const RightMenu = props => {
   return (
