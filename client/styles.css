@@ -3,12 +3,21 @@ body {
   background: #f6f6f6;
   margin: 0;
   padding: 0;
+  
+  background: linear-gradient(rgba(200,200,200,.3), rgba(200,200,200,.3)), url('food5.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  object-fit: contain;
 }
 
 #app {
   margin: 0;
   padding: 0;
   border: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #mainContainer {
@@ -21,7 +30,7 @@ body {
   padding: 0;
   border-bottom: 1px solid;
   /* position: fixed; */
-  /* box-shadow: 0px 0px 40px #ddd; */
+  /* box-shadow: 0px 0px 40px #ddd;
   color: #fff;
   width: 100%;
   height: 70px;
@@ -157,7 +166,20 @@ body {
   display: inline-block;
 }
 
-.login {
+.loginBackground {
+  /* background: linear-gradient(rgba(200,200,200,.3), rgba(200,200,200,.3)), url('food5.jpg'); */
+  background-color: red;
+  background-size: contain;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.loginSignup {
   background-color: white;
   width: 300px;
   height: 400px;
@@ -175,20 +197,96 @@ body {
   box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
 }
 
-.loginHeader {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.loginSignupHeader {
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Roboto', sans-serif;
   color: #252e38;
+  font-size: 34px;
+  margin-top: 40px;
 }
 
 .textbox {
   width: 200px;
   height: 20px;
-  padding: 5px;
+  padding-left: 30px;
   border-radius: 5px;
   outline: none;
+}
+
+.loginSignupInput {
+  background-color: white;
+  background-image: url('user-logo.png');
+  background-size: 28px;
+  background-repeat: no-repeat;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgrey;
+  /* border-color: transparent; */
+  
+  width: 150px;
+  height: 20px;
+  padding: 5px 30px;
+  /* border-radius: 5px; */
+  outline: none;
+}
+
+.passwordInput {
+  background-color: white;
+  background-image: url('password-logo.png');
+  background-size: 28px;
+  background-repeat: no-repeat;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid lightgrey;
+  
+  width: 150px;
+  height: 20px;
+  padding: 5px 30px;
+  /* border-radius: 5px; */
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .foodImg {
   width: 100px;
   margin-bottom: 10px;
 }
+
+#loginButton, #completeSignup {
+  width: 60%;
+  height: 30px;
+  margin-bottom: 40px;
+  border-radius: 30px;
+  outline: none;
+  background-color: #78BC5B;
+  font-size: 12px;
+  color: white;
+  border: none;
+}
+
+#loginButton:hover, #completeSignup:hover {
+  background-color: #9F9F9F;
+}
+
+.member {
+  font-size: 12px;
+  /* margin-top: 30px; */
+  /* padding: 0; */
+}
+
+#signUpButton {
+  font-size: 12px;
+  color: black;
+  text-decoration: underline;
+}
+
+#signUpButton:hover {
+  color: black;
+  cursor: pointer;
+}
+
