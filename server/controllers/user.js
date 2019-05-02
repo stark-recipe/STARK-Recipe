@@ -12,15 +12,15 @@ const login = (req, res, next) => {
   }
 
   pool.query(query, (err, result) => {
-    if (err) {
-        return res.status(403).send(err.toString());
+    if (err || result.rows.length === 0) {
+        return res.status(403).send({error: "Invalid username"});
     } else {
         bcrypt.compare(req.body.password, result.rows[0].password, (err, isMatch) => {
-            if (err || !isMatch) {res.status(403).send('password is invalid')}
+            if (err || !isMatch) {res.status(403).send({error: 'password is invalid'})}
             else {
               res.locals.result = {username: result.rows[0].username, email: result.rows[0].email, id: result.rows[0].id}
               return next();
-            } 
+            }
         })
     }
   })
@@ -50,7 +50,7 @@ const signup = (req, res, next) => {
       }
     })
   })
-   
+
 
 
 

@@ -25,6 +25,42 @@ export const changeFavoriteFoods = (newFavorite) => ({
   payload: newFavorite
 });
 
+export const getFavoriteFoods = (foodArr) => ({
+  type: types.GET_FAVORITE_FOODS,
+  payload: foodArr
+});
+
+
+//SENDS NEW FAV FOOD TO DB AND RENDERS NEW FOOD
+export const postFavoriteFoods = (foodObject, userId) => {
+  return function(dispatch){
+    return fetch('http://localhost:3000/addFav',{
+      method: 'POST',
+      mode: 'cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(foodObject)
+    })
+    .then(response => {
+      console.log(response);
+      dispatch(fetchFavoriteFoods(userId));
+    });
+  }
+
+}
+
+
+export const fetchFavoriteFoods = (userId) => {
+  console.log('this is the user id', userId);
+  return function(dispatch) {
+    fetch(`http://localhost:3000/favorite/${userId}`, {
+      method: "GET",
+    })
+    .then(response => response.json())
+    .then(response => {
+      dispatch(getFavoriteFoods(response))
+    });
+  }
+}
 export const connectToRecipe = (newRecipe) => ({
   type: types.CONNECT_TO_RECIPE,
   payload: newRecipe
@@ -38,3 +74,7 @@ export const onCardClicked = (cardId) => ({
 export const getShoppingList = (shoppingList) => ({
   type:types.GET_SHOPPING_LIST
 });
+
+export const backButtonClicked = () => ({
+  type: types.BACK_BUTTON_CLICKED
+})

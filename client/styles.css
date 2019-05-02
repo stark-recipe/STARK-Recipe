@@ -77,12 +77,16 @@ body {
 
 #rightMenuContainer {
   float: right;
-  width: 300px;
+  width: 19%;
   height: 760px;
   border: 1px dotted grey;
   display: flex;
   float: right;
   flex-direction: column;
+}
+
+.ingredients p {
+  font-size: 15px;
 }
 
 .rightMenuBox {
@@ -103,19 +107,19 @@ body {
   vertical-align: middle;
 }
 
-.boxArea {
-  margin: 0;
-  width: 100%;
+.row {
+  margin-left: 2.5%;
+  width: 75%;
   height: auto;
-  display: flex;
+  display: inline-block;
+  text-align: center;
 }
 
 .card {
   text-align: center;
   background-color: rgb(206, 190, 190);
-  width: 285px;
-  height: 350px;
-  margin: 15px;
+  width: 21%;
+  margin: 12px;
   /* border: dotted 1px rgb(71, 70, 70); */
   display: inline-block;
 }
@@ -165,7 +169,7 @@ body {
   margin-top: -200px;
   margin-left: -150px;
   border-radius: 5px;
-  
+
   -webkit-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   -moz-box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
   box-shadow: 4px 10px 8px -1px rgba(115,115,115,0.68);
