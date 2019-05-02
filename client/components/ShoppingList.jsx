@@ -29,4 +29,4 @@ class ShoppingList extends Component {
   }
 }
 
-export default connect(mapStateToProps)(ShoppingList)
+export default connect(mapStateToProps, null)(ShoppingList)
