@@ -16,9 +16,8 @@ export const isLogin = (id, username, email) => ({
   payload: {id, username, email}
 });
 
-export const signupOnClick = (bool) => ({
+export const signupOnClick = () => ({
   type: types.SIGNUP_ONCLICK,
-  payload: bool
 });
 
 export const loginApi = (usernameStr, passwordStr) => {
@@ -31,7 +30,6 @@ export const loginApi = (usernameStr, passwordStr) => {
     })
     .then(response => response.json())
     .then(response => {
-      console.log("THe response is: ", response);
         dispatch(isLogin(response.id, response.username, response.email))
     })
     .catch(err => console.log(err))
@@ -40,16 +38,14 @@ export const loginApi = (usernameStr, passwordStr) => {
 
 export const signupApi = (usernameStr, passwordStr) => {
   return function(dispatch, getState) {
-    return fetch('http://localhost:300.signup', {
+    return fetch('http://localhost:3000/signup', {
       method: "POST",
       headers: {"content-type": "application/json"},
       body: JSON.stringify({"username": usernameStr, "password": passwordStr})
     })
     .then(response => response.json())
     .then(response => {
-      if (response === 200) {
-        dispatch(isLogin(true))
-      }
+        dispatch(isLogin(response.id, response.username, response.email))
     })
     .catch(err => console.log(err))
   }

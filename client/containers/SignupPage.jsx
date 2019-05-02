@@ -39,7 +39,7 @@ class SignupPage extends React.Component{
         {/* contains the signup and login button */}
         <div className="buttons">
           <span>
-            <button id="completeSignup" onClick={(e)=>{this.props.signupApi(this.props.usernameStr, this.props.passwordStr)}}></button>
+            <button id="completeSignup" onClick={(e)=>{this.props.signupApi(this.props.usernameStr, this.props.passwordStr)}}>Sign Me Up!</button>
           </span>
        </div>
       </div>
