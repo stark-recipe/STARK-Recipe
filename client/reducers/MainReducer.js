@@ -6,12 +6,15 @@ import * as types from "../constants/actionTypes";
    cart: [],
    currCard: [],
    hasBeenClicked: false,
+   cardClicked: false,
+   backButton: true,
+   cardId: -1,
    favoriteFoods: []
  }
 
  const mainReducer = (state = initialState, action) => {
    let searchResults;
-
+   let cardClicked;
    switch(action.type) {
      case types.UPDATE_SEARCH_STR:
       return {
@@ -25,6 +28,25 @@ import * as types from "../constants/actionTypes";
         searchResults: action.payload
       }
      case types.CHANGE_PAGE:
+     case types.ON_CARD_CLICKED:
+      cardClicked = !state.cardClicked;
+      return {
+        ...state,
+        cardId: action.payload,
+        cardClicked: !state.cardClicked,
+        backButton: !state.backButton
+      }
+     case types.BACK_BUTTON_CLICKED:
+      return {
+        ...state,
+        cardClicked: !state.cardClicked,
+        backButton: !state.backButton
+      }
+     case types.GET_FAVORITE_FOODS:
+      return {
+        ...state,
+        favoriteFoods: action.payload
+      }
      case types.CHANGE_HAS_BEEN_CLICKED:
      case types.CHANGE_FAVORITE_FOODS:
      case types.CONNECT_TO_RECIPE:

@@ -9,6 +9,7 @@ const initialState = {
   userId : null,
   userName: '',
   email: '',
+  error: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -26,13 +27,20 @@ const authReducer = (state = initialState, action) => {
       }
 
       case types.IS_LOGIN:
-        const isLoggedIn = true;
-        return {
-          ...state,
-          isLoggedIn,
-          userId: action.payload.id,
-          userName: action.payload.username,
-          email: action.payload.email
+        if(action.payload.error){
+          return {
+            ...state,
+            error: action.payload.error
+          }
+        }else{
+          const isLoggedIn = true;
+          return {
+            ...state,
+            isLoggedIn,
+            userId: action.payload.id,
+            userName: action.payload.username,
+            email: action.payload.email
+          }
         }
 
       case types.SIGNUP_ONCLICK:

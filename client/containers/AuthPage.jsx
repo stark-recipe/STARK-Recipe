@@ -8,8 +8,10 @@ const mapStateToProps = (store) => ({
   usernameStr:store.auth.usernameStr,
   passwordStr:store.auth.passwordStr,
   isLoggedIn:store.auth.isLoggedIn,
-  isSignup:store.auth.isSignup
+  isSignup:store.auth.isSignup,
+  error:store.auth.error
 });
+
 
 const mapDispatchToProps = (dispatch) => ({
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
@@ -24,6 +26,9 @@ class AuthPage extends React.Component{
     super(props);
   }
   render(){
+    let errorDiv;
+    if(this.props.error != null) errorDiv = <div id='error'><p>{this.props.error}</p></div>;
+
     if (this.props.isSignup === true) {
       return <Redirect to="/signup"></Redirect>
     } else if (this.props.isLoggedIn === true) {
@@ -51,6 +56,7 @@ class AuthPage extends React.Component{
             <a id="signUpButton" onClick={this.props.signupOnClick}>Sign Up Now</a>
           </span>
        </div>
+       {errorDiv}
       </div>
     )
   }

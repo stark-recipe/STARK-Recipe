@@ -12,10 +12,11 @@ const favorite = (req, res, next) => {
 
   pool.query(query, (err, results) => {
     if (err) {
+      console.log(err);
       res.locals.err = err;
       return next();
     }
-
+    console.log(results);
     res.locals.data = results.rows;
     return next();
   })

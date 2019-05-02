@@ -5,16 +5,21 @@ import * as mainActions from '../actions/mainActions'
 import { Redirect } from 'react-router-dom';
 //importing components//////////////////////////////
 import Search from '../components/Search.jsx';
-import CardArea from '../components/BoxArea.jsx';
-
+import BoxArea from '../components/BoxArea.jsx';
+import RightMenu from '../components/RightMenu.jsx'
 //mapping state and action creators to props//////////////////////////
 const mapStateToProps = (store) => ({
   searchStr: store.main.searchStr,
-  searchResults: store.main.searchResults
+  searchResults: store.main.searchResults,
+  cardClicked: store.main.cardClicked,
+  userId: store.auth.userId,
+  userName: store.auth.userName,
+  favoriteFoods: store.auth.favoriteFoods
 })
 
 const mapDispatchToProps = (dispatch) =>({
   updateSearchStr: (searchStr) => {dispatch(mainActions.updateSearchStr(searchStr))},
+  onCardClicked: (cardId) => {dispatch(mainActions.onCardClicked(cardId))},
   callSearchStr: (searchStr) => {
     return fetch('http://localhost:3000/search',{
       method: "POST",
@@ -24,7 +29,8 @@ const mapDispatchToProps = (dispatch) =>({
     })
     .then(response => response.json())
     .then(response => dispatch(mainActions.callSearchStr(response)));
-  }
+  },
+  fetchFavoriteFoods: (userId) => dispatch(mainActions.fetchFavoriteFoods(userId))
 });
 
 //MainContainer being created
@@ -34,15 +40,22 @@ class MainContainer extends Component {
   }
 
   render() {
+    console.log(this.props.onCardClicked)
     if(this.props.cardClicked === true){
       return <Redirect to='/selectedCard'></Redirect>
-    }
+    } else
     return (
       <div>
-        <Search searchStr={this.props.searchStr} updateSearchStr={this.props.updateSearchStr} callSearchStr={this.props.callSearchStr}/>
-        <CardArea searchResults={this.props.searchResults} />
-        <h1>Welcome to STARK recipes tracker</h1>
+      <h1>Welcome to STARK recipes tracker {this.props.userName}</h1>
+        <Search
+        searchStr={this.props.searchStr}
+        updateSearchStr={this.props.updateSearchStr}
+        callSearchStr={this.props.callSearchStr}
+        />
+        <BoxArea searchResults={this.props.searchResults} onCardClicked={this.props.onCardClicked} />
+        <RightMenu />
       </div>
+
     );
   }
 }
