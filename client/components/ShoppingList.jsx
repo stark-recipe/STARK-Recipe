@@ -1,34 +1,32 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import RecipeItem from "./RecipeItem.jsx"
+import Collapsible from "react-collapsible";
+
+
+const mapStateToProps = (store) => ({
+  shoppingCartArr:store.main.shoppingCartArr
+})
 
 class ShoppingList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      list: {}
-    };
   }
 
-  // componentDidMount() {
-  //   shoppingList();
-  // }
-
-  // shoppingList() {
-  //   axios.get("http://localhost:3000/mainShoppingList").then(res => {
-  //     this.setState({ shoppingList: res.data });
-  //   });
-  // }
   render() {
-    //   const favoriteBox = this.state.foods.map(food => (
-    //       <div>{foods.hits.recipe.image}</div>
-    //   ))
+    const cartItemsArr = this.props.shoppingCartArr.map(function(el){
+      return <RecipeItem item={el} />
+    })
     return (
       <div>
-        <div className="rightMenuBox">
-          <button className="rightMenuBtn">Shopping List</button>
-        </div>
+        <Collapsible trigger={<button className="rightMenuBtn">SHOPPING CART</button>} transitionTime={200}>
+          <div>
+            {cartItemsArr}
+          </div>
+        </Collapsible>
       </div>
     );
   }
 }
 
-export default ShoppingList;
+export default connect(mapStateToProps, null)(ShoppingList)

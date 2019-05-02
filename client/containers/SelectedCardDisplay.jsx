@@ -11,7 +11,8 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   backButtonClicked: () => {dispatch(mainActions.backButtonClicked())},
-  postFavoriteFoods: (foodObj, userId) => {dispatch(mainActions.postFavoriteFoods(foodObj, userId))}
+  postFavoriteFoods: (foodObj, userId) => {dispatch(mainActions.postFavoriteFoods(foodObj, userId))},
+  addToShoppingCart: (cartItem) =>{dispatch(mainActions.addToShoppingCart(cartItem))}
 });
 
 class SelectedCardDisplay extends Component {
@@ -19,7 +20,7 @@ class SelectedCardDisplay extends Component {
     super(props);
   }
 
-  render(){
+  render(){ingredients
     const cardProps = this.props.cardInfo;
     const ingredients = cardProps.ingredientLines.map((line) => {return <p>{line}</p>});
     const favoriteObj = {
@@ -35,76 +36,27 @@ class SelectedCardDisplay extends Component {
 
     return (
       <div id="mainbody">
-          <button onClick={(e) => this.props.backButtonClicked()}>GO BACK</button>
-          <img src={cardProps.image} />
-          <h3 id='label'>{cardProps.label}</h3>
-          <p>see full recipe on: <a href={cardProps.url}> {cardProps.source} </a> </p>
-      <div className="ingredients">
+        <button onClick={(e) => this.props.backButtonClicked()}>GO BACK</button>
+        <img src={cardProps.image} />
+        <h3 id='label'>{cardProps.label}</h3>
+        <p>see full recipe on: <a href={cardProps.url}> {cardProps.source} </a> </p>
+        <div className="ingredients">
           {ingredients}
-      </div>
-      <div className="preparation">
-
-      </div>
-      <div className="yield">
-        <p>Yield: {cardProps.yield}</p>
-      </div>
-      <div className="nutrition">
-        <p>Calories: {cardProps.calories}</p>
-        <p>Fats: {cardProps.fats} </p>
-        <p>Carbs: {cardProps.carbs} </p>
-        <p>Protein: {cardProps.protein} </p>
-      </div>
-      <button onClick={()=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
+        </div>
+        <div className="yield">
+          <p>Yield: {cardProps.yield}</p>
+        </div>
+        <div className="nutrition">
+          <p>Calories: {cardProps.calories}</p>
+          <p>Fats: {cardProps.fats} </p>
+          <p>Carbs: {cardProps.carbs} </p>
+          <p>Protein: {cardProps.protein} </p>
+        </div>
+        <button onClick={(e)=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
+        <button onClick={(e)=>{this.props.addToShoppingCart(cardProps.ingredientLines)}}>ADD INGREDIENTS TO CART </button>
       </div>
     );
   }
 }
-
-// <div id="mainbody">
-//   <div id="upperContainer">
-//     <div className="upperLeftContainer">
-//       <img id="foodImg" src={props.state.label[props.index]} />
-//     </div>
-//     <div className="upperRightContainer">
-//       {/* <h3 id="label">{props.state.label}</h3> */}
-//       <p>see full recipe on: {props.state.source[props.index]}</p>
-//       <button> Save </button>
-//     </div>
-//   </div>
-//   <div id="lowerContainer">
-//     <div id="ingredients">
-//       <div>{props.state.ingredientLines[props.index]} ingredients</div>
-//       ))}
-//     </div>
-//     <div id="preparation">
-//       <button>Instructions</button> on {props.state.source[props.index]}
-//     </div>
-
-//     <div id="nutrition">
-//       Nutrition <br />
-//       <div id="nutiritionTotal">
-//         <div id="caloriesPerServing">
-//           {" "}
-//           {props.state.calories[props.index]}
-//           {Math.floor(
-//             parseInt(props.state.calories[props.index]) / parseInt(props.state.yield[props.index])
-//           )}{" "}
-//           <p>CALRORIES / SERVING</p>{" "}
-//         </div>
-//         <div id="totalServing">
-//           {props.state.yield[props.index]}
-//           <p>SERVINGS</p>
-//         </div>
-//       </div>
-//       <br />
-//       <div id="nutiritionGraph" />
-//       <div id="seperateNutrition">
-//         <p>Fat: {props.state.fats[props.index]} </p>
-//         <p>Carbs:{props.state.carbs[props.index]} </p>
-//         <p>Protein: {props.state.protein[props.index]} </p>
-//       </div>
-//     </div>
-//   </div>
-// </div>
 
 export default connect(mapStateToProps,mapDispatchToProps)(SelectedCardDisplay);

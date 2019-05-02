@@ -40,17 +40,16 @@ class MainContainer extends Component {
   }
 
   render() {
-    console.log(this.props.onCardClicked)
     if(this.props.cardClicked === true){
       return <Redirect to='/selectedCard'></Redirect>
     } else
     return (
       <div>
-      <h1>Welcome to STARK recipes tracker {this.props.userName}</h1>
+        <h1>Welcome to STARK recipes tracker {this.props.userName}</h1>
         <Search
-        searchStr={this.props.searchStr}
-        updateSearchStr={this.props.updateSearchStr}
-        callSearchStr={this.props.callSearchStr}
+          searchStr={this.props.searchStr}
+          updateSearchStr={this.props.updateSearchStr}
+          callSearchStr={this.props.callSearchStr}
         />
         <BoxArea searchResults={this.props.searchResults} onCardClicked={this.props.onCardClicked} />
         <RightMenu />
@@ -59,6 +58,5 @@ class MainContainer extends Component {
     );
   }
 }
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(MainContainer);

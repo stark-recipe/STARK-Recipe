@@ -41,16 +41,18 @@ export const postFavoriteFoods = (foodObject, userId) => {
       body: JSON.stringify(foodObject)
     })
     .then(response => {
-      console.log(response);
       dispatch(fetchFavoriteFoods(userId));
     });
   }
 
 }
 
+export const addToShoppingCart = (newObj) => ({
+  type: types.ADD_TO_SHOPPING_CART,
+  payload: newObj
+});
 
 export const fetchFavoriteFoods = (userId) => {
-  console.log('this is the user id', userId);
   return function(dispatch) {
     fetch(`http://localhost:3000/favorite/${userId}`, {
       method: "GET",

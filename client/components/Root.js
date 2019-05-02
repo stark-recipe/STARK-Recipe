@@ -4,13 +4,11 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AuthPage from '../containers/AuthPage.jsx';
 import { Switch } from 'react-router';
-
 import SignupPage from '../containers/SignupPage.jsx';
 import MainContainer from '../containers/MainContainer.jsx';
 import SelectedCardDisplay from '../containers/SelectedCardDisplay.jsx'
 
 const Root = ({ store }) => (
-
   <Provider store={store}>
     <Router>
       <Switch>
@@ -23,11 +21,8 @@ const Root = ({ store }) => (
   </Provider>
 )
 
-
-
 Root.propTypes = {
   store: PropTypes.object.isRequired
 }
-
 
 export default Root
