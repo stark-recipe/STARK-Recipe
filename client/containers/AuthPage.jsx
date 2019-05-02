@@ -30,12 +30,12 @@ class AuthPage extends React.Component{
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
-      <div className="login">
-        <h1 className="loginHeader">Welcome</h1>
-        {/* input field for username */}
+      <div className="loginSignup">
+        <h1 className="loginSignupHeader">Welcome</h1>
         <img className="foodImg" src="https://img.icons8.com/bubbles/100/000000/food.png"></img>
+        {/* input field for username */}
         <div className="username input">
-          <input type="text" className="loginInput" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
+          <input type="text" className="loginSignupInput" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
         {/* input field for password */}
         <div className="password input">
@@ -45,7 +45,10 @@ class AuthPage extends React.Component{
         <div className="buttons">
           <span>
             <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}>Log In</button>
-            <button id="signUpButton" onClick={this.props.signupOnClick}>Sign Up!</button>
+            <br></br>
+            <span className="member">Not a member? </span>
+            {/* <button id="signUpButton" onClick={this.props.signupOnClick}>Sign Up Now</button> */}
+            <a id="signUpButton" onClick={this.props.signupOnClick}>Sign Up Now</a>
           </span>
        </div>
       </div>
