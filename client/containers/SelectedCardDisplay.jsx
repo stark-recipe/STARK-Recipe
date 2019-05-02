@@ -35,11 +35,14 @@ class SelectedCardDisplay extends Component {
 
     return (
       <div id="mainbody">
-          <button onClick={(e) => this.props.backButtonClicked()}>GO BACK</button>
-          <img src={cardProps.image} />
-          <h3 id='label'>{cardProps.label}</h3>
-          <p>see full recipe on: <a href={cardProps.url}> {cardProps.source} </a> </p>
+          <button className="pageBtn" onClick={(e) => this.props.backButtonClicked()}>GO BACK</button>
+          <br></br>
+          <br></br>
+          <img className="RecipeImg" src={cardProps.image} />
+          <h2 id='label'>{cardProps.label}</h2>
+          <p>See full recipe on: <a href={cardProps.url}> {cardProps.source} </a> </p>
       <div className="ingredients">
+          <h4>INGREDIENTS:</h4>
           {ingredients}
       </div>
       <div className="preparation">
@@ -49,12 +52,13 @@ class SelectedCardDisplay extends Component {
         <p>Yield: {cardProps.yield}</p>
       </div>
       <div className="nutrition">
+        <h4>NUTRITION:</h4>
         <p>Calories: {cardProps.calories}</p>
         <p>Fats: {cardProps.fats} </p>
         <p>Carbs: {cardProps.carbs} </p>
         <p>Protein: {cardProps.protein} </p>
       </div>
-      <button onClick={()=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
+      <button className="pageBtn" onClick={()=>{this.props.postFavoriteFoods(favoriteObj, this.props.userId)}}>ADD TO FAVORITES</button>
       </div>
     );
   }

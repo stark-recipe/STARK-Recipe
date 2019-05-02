@@ -47,7 +47,7 @@ class MainContainer extends Component {
     return (
       <div>
       <div className="headerName"> 
-      <h1 className="welcomeHeader">Welcome to BLISSEY recipes tracker {this.props.userName}</h1>
+      <h1 className="welcomeHeader">Welcome to BLISSEY recipes tracker {this.props.userName}!</h1>
       </div>
         <Search
         searchStr={this.props.searchStr}
