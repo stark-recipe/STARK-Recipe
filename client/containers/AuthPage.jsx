@@ -13,7 +13,7 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
-  updatePasswordStr:(e) => {console.log(e.target.value);dispatch(authActions.updatePasswordStr(e.target.value))},
+  updatePasswordStr:(e) => {dispatch(authActions.updatePasswordStr(e.target.value))},
   signupOnClick:() => {dispatch(authActions.signupOnClick())},
   loginApi:(usernameStr, passwordStr) => {dispatch(authActions.loginApi(usernameStr, passwordStr))},
 });

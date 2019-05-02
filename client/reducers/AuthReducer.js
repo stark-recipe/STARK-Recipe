@@ -20,7 +20,6 @@ const authReducer = (state = initialState, action) => {
       }
     case types.UPDATE_PASSWORD_STR:
       //return state with payload inserted into password
-      console.log("setting password str ", action.payload )
       return {
         ...state,
         passwordStr: action.payload

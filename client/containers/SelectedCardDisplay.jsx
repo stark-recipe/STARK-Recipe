@@ -71,8 +71,5 @@ class SelectedCardDisplay extends Component {
   }
 }
 
-const SelectedCardDisplay = props => {
-
-};
 
 export default connect(mapStateToProps,mapDispatchToProps)(SelectedCardDisplay);
