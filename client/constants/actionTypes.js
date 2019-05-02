@@ -7,8 +7,6 @@ action type format
 //ACTION TYPES FOR AUTH REDUCER
 export const UPDATE_USERNAME_STR = "UPDATE_USERNAME_STR";
 export const UPDATE_PASSWORD_STR = "UPDATE_PASSWORD_STR";
-export const LOGIN_ONCLICK = "LOGIN_ONCLICK";
-export const SIGNUP_ONCLICK = "SIGNUP_ONCLICK";
 export const IS_LOGIN= "IS_LOGIN";
 
 
