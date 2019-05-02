@@ -15,8 +15,10 @@ const addFavController = (req, res, next) => {
 
   pool.query(query, (err, result) => {
     if (err) {
+      console.log(err);
       res.status(403).send(err);
     } else {
+
       res.locals.addFav = result.rows[0];
       return next();
     }

@@ -6,14 +6,15 @@ import { Redirect } from 'react-router-dom';
 //importing components//////////////////////////////
 import Search from '../components/Search.jsx';
 import BoxArea from '../components/BoxArea.jsx';
-
+import RightMenu from '../components/RightMenu.jsx'
 //mapping state and action creators to props//////////////////////////
 const mapStateToProps = (store) => ({
   searchStr: store.main.searchStr,
   searchResults: store.main.searchResults,
   cardClicked: store.main.cardClicked,
   userId: store.auth.userId,
-  userName: store.auth.userName
+  userName: store.auth.userName,
+  favoriteFoods: store.auth.favoriteFoods
 })
 
 const mapDispatchToProps = (dispatch) =>({
@@ -28,7 +29,8 @@ const mapDispatchToProps = (dispatch) =>({
     })
     .then(response => response.json())
     .then(response => dispatch(mainActions.callSearchStr(response)));
-  }
+  },
+  fetchFavoriteFoods: (userId) => dispatch(mainActions.fetchFavoriteFoods(userId))
 });
 
 //MainContainer being created
@@ -51,7 +53,9 @@ class MainContainer extends Component {
         callSearchStr={this.props.callSearchStr}
         />
         <BoxArea searchResults={this.props.searchResults} onCardClicked={this.props.onCardClicked} />
+        <RightMenu />
       </div>
+
     );
   }
 }

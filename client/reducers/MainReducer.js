@@ -42,6 +42,11 @@ import * as types from "../constants/actionTypes";
         cardClicked: !state.cardClicked,
         backButton: !state.backButton
       }
+     case types.GET_FAVORITE_FOODS:
+      return {
+        ...state,
+        favoriteFoods: action.payload
+      }
      case types.CHANGE_HAS_BEEN_CLICKED:
      case types.CHANGE_FAVORITE_FOODS:
      case types.CONNECT_TO_RECIPE:

@@ -42,6 +42,7 @@ app.post('/search', searchController, (req, res) => {
 
 //sends back user_id, label, img_url, recipe_url
 app.post('/addFav', addFavController, (req, res) => {
+  console.log('added to db');
   res.send(res.locals.addFav);
 });
 
