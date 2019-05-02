@@ -18,8 +18,6 @@ const Search = props => {
           Search{" "}
         </button>
       </div>
-
-      <button id="login">Login</button>
     </div>
   );
 };
