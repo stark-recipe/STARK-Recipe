@@ -26,15 +26,16 @@ class SignupPage extends React.Component{
       return <Redirect to="/maincontainer"></Redirect>
     } else
     return (
-      <div className="signup">
-        <h1 className="signupHeader">Sign Up</h1>
+      <div className="loginSignup">
+        <h1 className="loginSignupHeader">Sign Up</h1>
+        <img className="foodImg" src="https://img.icons8.com/bubbles/100/000000/food.png"></img> 
         {/* input field for username */}
         <div className="username input">
-          <input type="text" className="textbox" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
+          <input type="text" className="loginSignupInput" value={this.props.usernameStr} onChange={this.props.updateUsernameStr}></input>
         </div>
         {/* input field for password */}
         <div className="password input">
-          <input type="password" className="textbox" value={this.props.passwordStr} onChange={this.props.updatePasswordStr}></input>
+          <input type="password" className="passwordInput" value={this.props.passwordStr} onChange={this.props.updatePasswordStr}></input>
         </div>
         {/* contains the signup and login button */}
         <div className="buttons">
