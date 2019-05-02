@@ -6,14 +6,14 @@ import * as authActions from '../actions/authActions'
 
 const mapStateToProps = (store) => ({
   usernameStr:store.auth.usernameStr,
-  passworgStr:store.auth.passwordStr,
+  passwordStr:store.auth.passwordStr,
   isLoggedIn:store.auth.isLoggedIn,
   isSignup:store.auth.isSignup
 });
 
 const mapDispatchToProps = (dispatch) => ({
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
-  updatePasswordStr:(e) => {dispatch(authActions.updatePasswordStr(e.target.value))},
+  updatePasswordStr:(e) => {console.log(e.target.value);dispatch(authActions.updatePasswordStr(e.target.value))},
   signupOnClick:() => {dispatch(authActions.signupOnClick())},
   loginApi:(usernameStr, passwordStr) => {dispatch(authActions.loginApi(usernameStr, passwordStr))},
 });
@@ -43,7 +43,8 @@ class AuthPage extends React.Component{
         {/* contains the signup and login button */}
         <div className="buttons">
           <span>
-            <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}></button> <button id="signUpButton" onClick={this.props.signupOnClick}></button>
+            <button id="loginButton" onClick={(e)=>{this.props.loginApi(this.props.usernameStr, this.props.passwordStr)}}>Log In</button>
+            <button id="signUpButton" onClick={this.props.signupOnClick}>Sign Up!</button>
           </span>
        </div>
       </div>
