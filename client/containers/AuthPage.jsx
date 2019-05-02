@@ -12,7 +12,6 @@ const mapStateToProps = (store) => ({
   error:store.auth.error
 });
 
-
 const mapDispatchToProps = (dispatch) => ({
   updateUsernameStr:(e) => {dispatch(authActions.updateUsernameStr(e.target.value))},
   updatePasswordStr:(e) => {dispatch(authActions.updatePasswordStr(e.target.value))},
@@ -61,6 +60,5 @@ class AuthPage extends React.Component{
     )
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthPage)

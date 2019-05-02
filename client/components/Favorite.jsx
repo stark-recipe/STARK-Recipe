@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Collapsible from "react-collapsible";
 import { connect } from 'react-redux';
-
 import * as mainActions from '../actions/mainActions'
 
 
@@ -13,7 +12,8 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchFavoriteFoods: (userId) => {dispatch(mainActions.fetchFavoriteFoods(userId))}
+  fetchFavoriteFoods: (userId) => dispatch(mainActions.fetchFavoriteFoods(userId)),
+  removeFavFood: (favId) => dispatch(mainActions.removeFavFoodPost(favId))
 });
 
 
@@ -28,33 +28,20 @@ class Favorite extends Component {
 
   render() {
     favoriteEl = this.props.favoriteFoods.map((food) => {
-      return <div><p>test123</p><img src={food.img_url} /></div>
+      return <div><p>{food.label}</p><img src={food.img_url} /><button onClick={(e) => this.props.removeFavFood(food.id)}>Remove</button></div>
     });
     return(
-        <div>
+      <div>
         <Collapsible trigger={<FavoriteBoxTrigger />} transitionTime={200}>
-          <div>{favoriteEl}</div>
+          <div>
+            {favoriteEl}
+          </div>
         </Collapsible>
       </div>
-
     )
   }
 }
 
-
-// const favoriteBox = this.state.foods.map(food => (
-  // <button
-  //   className="menuBox"
-  //   key={food.label}
-  //   onClick={event => {
-  //     this.connectToRecipe(even.target.value);
-  //     this.setState({ selectedMenu: event.target.value });
-  //   }}
-  // >
-//     {food.image_url} {food.label}
-//   </button>
-// ));
-//
 const FavoriteBoxTrigger = () => (
   <button className="rightMenuBtn">Favorite</button>
 );

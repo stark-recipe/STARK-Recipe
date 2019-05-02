@@ -30,6 +30,11 @@ export const getFavoriteFoods = (foodArr) => ({
   payload: foodArr
 });
 
+export const removeFavFood = (favId) => ({
+  type: types.REMOVE_FAV,
+  payload: {favId}
+})
+
 
 //SENDS NEW FAV FOOD TO DB AND RENDERS NEW FOOD
 export const postFavoriteFoods = (foodObject, userId) => {
@@ -41,16 +46,34 @@ export const postFavoriteFoods = (foodObject, userId) => {
       body: JSON.stringify(foodObject)
     })
     .then(response => {
-      console.log(response);
       dispatch(fetchFavoriteFoods(userId));
     });
   }
 
 }
 
+//SENDS NEW FAV FOOD TO DB AND RENDERS NEW FOOD
+export const removeFavFoodPost = (favId) => {
+  return function(dispatch){
+    return fetch('http://localhost:3000/removeFav',{
+      method: 'DELETE',
+      mode: 'cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ id: favId })
+    })
+    .then(response => {
+      dispatch(removeFavFood(favId));
+    });
+  }
+
+}
+
+export const addToShoppingCart = (newObj) => ({
+  type: types.ADD_TO_SHOPPING_CART,
+  payload: newObj
+});
 
 export const fetchFavoriteFoods = (userId) => {
-  console.log('this is the user id', userId);
   return function(dispatch) {
     fetch(`http://localhost:3000/favorite/${userId}`, {
       method: "GET",
