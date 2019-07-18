@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./client/src/index.js",
+  entry: "./client/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/build/",
@@ -25,7 +25,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: "css-loader"
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: ['file-loader']
       }
     ]
   }

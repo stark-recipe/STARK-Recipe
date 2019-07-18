@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const removeFavController = require('./controllers/removeFavController')
 const removeList = require('./controllers/removeList')
 const mainShoppingList = require('./controllers/mainShoppingList')
-const mainFavorite = require('./controllers/mainFavorite')
+const favorite = require('./controllers/favorite')
+const user = require('./controllers/user')
 
 const {
   PORT = 3000
@@ -25,9 +26,32 @@ app.use(function (req, res, next) {
   return next();
 });
 
+//sends back id, username, email
+app.post('/signup', user.signup, (req, res) => {
+  res.send(res.locals.result);
+})
 
+app.post('/login', user.login, (req, res) => {
+  res.send(res.locals.result);
+})
 
-app.get('/mainFavorite', mainFavorite, (req, res) => {
+app.post('/search', searchController, (req, res) => {
+  if (res.locals.err) res.status(404).send(err);
+  res.send(res.locals.apiData);
+});
+
+//sends back user_id, label, img_url, recipe_url
+app.post('/addFav', addFavController, (req, res) => {
+  console.log('added to db');
+  res.send(res.locals.addFav);
+});
+
+//sends back id, label, img_url, recipe_url, user_id
+app.delete('/removeFav', removeFavController, (req, res)=> {
+  res.send(res.locals.removeData);
+});
+
+app.get('/favorite/:user_id', favorite, (req, res) => {
   if (res.locals.err) res.status(404).send(res.locals.err);
   res.send(res.locals.data);
 });
@@ -37,24 +61,8 @@ app.get('/mainShoppingList', mainShoppingList, (req, res) => {
   res.send(res.locals.data);
 });
 
-app.post('/search', searchController, (req, res) => {
-  if (res.locals.err) res.status(404).send(err);
-  res.send(res.locals.apiData);
-});
-
-app.post('/addFav', addFavController, (req, res) => {
-  if (res.locals.err) res.status(404).send(err);
-  res.send(res.locals.addFav);
-});
-
 app.post('/addIngredientsToList', (req, res) => {
-  if (res.locals.err) res.status(404).send(err);
-  res.send('Booby Drop Added');
-});
-
-app.delete('/removeFav', removeFavController, (req, res)=> {
-  if (res.locals.err) res.status(404).send(res.locals.err);
-  res.send('Booby Drop Favs');
+  res.send(res.locals.addIngredientsToList);
 });
 
 app.delete('/removeList', removeList, (req, res) => {
@@ -66,8 +74,12 @@ app.get('*', (req, res) => {
   res.status(404).send('Route does not exist');
 })
 
-if (require.main === module) {
-  app.listen(PORT, () => {
+// if (require.main === module) {
+//   app.listen(PORT, () => {
+//     console.log('server started at http://localhost:' + PORT);
+//   });
+// };
+
+module.exports =  app.listen(PORT, () => {
     console.log('server started at http://localhost:' + PORT);
   });
-};
